@@ -35,11 +35,22 @@ class LiveRouter:
         return bd1, bd2
 
     def get_best_strategy(self):
-        bd1, bd2 = self.current_regime()
-        cell     = self.archive.get_best_for_regime(bd1, bd2)
-        if cell is None:
-            return None
-        return cell
+    bd1, bd2 = self.current_regime()
+    cell = self.archive.get_best_for_regime(bd1, bd2)
+    
+    # If the routed cell is weak (fitness below 0.3), 
+    # fall back to the best strategy overall
+    if cell is None or cell.fitness < 0.3:
+        best = None
+        best_fit = -99
+        for i in range(self.archive.grid_size):
+            for j in range(self.archive.grid_size):
+                c = self.archive.grid[i][j]
+                if c and c.fitness > best_fit:
+                    best_fit = c.fitness
+                    best = c
+        return best
+    return cell
 
     def get_signal(self) -> float:
         """
