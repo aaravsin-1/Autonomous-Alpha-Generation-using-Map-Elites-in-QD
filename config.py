@@ -20,7 +20,7 @@ GRID_SIZE        = 10          # 10x10 = 100 niches
 # ── Evolution ─────────────────────────────────────────────────────────────────
 POPULATION_SEED  = 200         # initial random strategies to seed archive
 MAX_GENERATIONS  = 2000        # total evolution steps
-MUTATION_SIGMA   = 0.15        # gaussian mutation std (normalised space)
+MUTATION_SIGMA   = 0.28        # gaussian mutation std (normalised space) was 0.15
 CROSSOVER_PROB   = 0.3         # probability of crossover vs pure mutation
 ELITE_MUTATION   = 0.7         # probability of mutating an existing elite
 RANDOM_INJECTION = 0.3         # probability of generating a brand-new random
@@ -28,7 +28,7 @@ RANDOM_INJECTION = 0.3         # probability of generating a brand-new random
 # ── Fitness ────────────────────────────────────────────────────────────────────
 MIN_TRADES       = 10          # discard strategies with fewer trades
 RISK_FREE_RATE   = 0.04        # annual risk-free rate for Sharpe
-FITNESS_METRIC   = "sharpe"    # "sharpe" | "calmar" | "sortino"
+FITNESS_METRIC   = "calmar"    # "sharpe" | "calmar" | "sortino" was sharpe
 
 # ── Strategy Genome Bounds ─────────────────────────────────────────────────────
 # Each gene is normalised to [0, 1] internally; bounds below are the real values
