@@ -1,14 +1,14 @@
 """
 testing/walk_forward.py
 
-Walk-forward validation — the only honest way to test a strategy.
+Walk-forward validation -- the only honest way to test a strategy.
 
 The idea:
   Split the data into N windows.
   For each window: evolve on the PAST, test on the FUTURE.
   The test periods never overlap with training.
   If the strategy works on every unseen future window,
-  it has genuine predictive power — not just curve fitting.
+  it has genuine predictive power -- not just curve fitting.
 
 Example with 5 windows (5 years training, 1 year test):
   Window 1: train 2010-2014, test 2015
@@ -88,8 +88,8 @@ def run_walk_forward(
 
         if verbose:
             print(f"\n  Window {w+1}/{n_windows}: "
-                  f"train {df_train.index[0].year}–{df_train.index[-1].year}  "
-                  f"test {df_test.index[0].year}–{df_test.index[-1].year} "
+                  f"train {df_train.index[0].year}-{df_train.index[-1].year}  "
+                  f"test {df_test.index[0].year}-{df_test.index[-1].year} "
                   f"({len(df_train)}d / {len(df_test)}d)")
 
         # --- Evolve on training data ---
@@ -173,7 +173,7 @@ def run_walk_forward(
         results.append(res)
 
         if verbose:
-            verdict = "✓ PASS" if test_sh > 0 else "✗ FAIL"
+            verdict = "[OK] PASS" if test_sh > 0 else "[X] FAIL"
             print(f"    Train Sharpe: {train_sharpe:+.3f}  "
                   f"Test Sharpe: {test_sh:+.3f}  "
                   f"Return: {test_ret*100:+.1f}%  "

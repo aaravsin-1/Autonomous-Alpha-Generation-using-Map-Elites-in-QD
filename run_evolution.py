@@ -1,5 +1,5 @@
 """
-run_evolution.py — QD Trading System main loop
+run_evolution.py -- QD Trading System main loop
 Usage:
     python run_evolution.py --synthetic --generations 400
     python run_evolution.py --resume --synthetic
@@ -51,7 +51,7 @@ def load_data(ticker, use_synthetic=False, csv_path=None):
             if df is not None and len(df) > 100:
                 return df, "live"
         except Exception:
-            print(Fore.YELLOW + "  Live data unavailable — using synthetic data.")
+            print(Fore.YELLOW + "  Live data unavailable -- using synthetic data.")
     from data.synthetic import generate_market_data
     df = generate_market_data(n_days=3000, seed=42)
     return df, "synthetic"
@@ -67,7 +67,7 @@ def seed_archive(engine, archive, n, sigma):
         if archive.try_add(g, r, 0):
             added += 1
     print(Fore.GREEN +
-          f"  Seeded → {archive.n_filled}/{cfg.GRID_SIZE**2} niches "
+          f"  Seeded -> {archive.n_filled}/{cfg.GRID_SIZE**2} niches "
           f"({archive.coverage*100:.0f}%) in {attempts} evaluations\n")
 
 
@@ -78,7 +78,7 @@ def run_evolution(args):
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(Fore.CYAN + "=" * 64)
-    print(Fore.CYAN + "  QD TRADING SYSTEM — MAP-Elites Evolution Engine")
+    print(Fore.CYAN + "  QD TRADING SYSTEM -- MAP-Elites Evolution Engine")
     print(Fore.CYAN + "=" * 64)
     print(f"  Grid: {cfg.GRID_SIZE}x{cfg.GRID_SIZE}={cfg.GRID_SIZE**2} niches  "
           f"Fitness: {cfg.FITNESS_METRIC}  Sigma: {args.sigma}")
@@ -153,7 +153,7 @@ def run_evolution(args):
             archive.save(archive_path)
             plot_archive_heatmap(archive, generation=gen, save=True)
             plot_evolution_curves(metrics_path, save=True)
-            print(Fore.BLUE + f"  → Checkpoint saved  (gen {gen})")
+            print(Fore.BLUE + f"  -> Checkpoint saved  (gen {gen})")
 
     # Final
     archive.save(archive_path)

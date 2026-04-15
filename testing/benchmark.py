@@ -4,14 +4,14 @@ testing/benchmark.py
 Compare QD strategies against standard benchmarks.
 
 Benchmarks:
-  1. Buy & Hold         — just own the asset
-  2. 50/200 MA Cross    — classic golden/death cross
-  3. RSI 30/70          — classic mean-reversion
-  4. Random strategy    — random signals (noise floor)
-  5. Best QD strategy   — what we evolved
+  1. Buy & Hold         -- just own the asset
+  2. 50/200 MA Cross    -- classic golden/death cross
+  3. RSI 30/70          -- classic mean-reversion
+  4. Random strategy    -- random signals (noise floor)
+  5. Best QD strategy   -- what we evolved
 
 If our strategy can't beat a simple moving average crossover,
-something is wrong. If it does beat it — consistently —
+something is wrong. If it does beat it -- consistently --
 that's genuine value.
 """
 
@@ -162,7 +162,7 @@ def print_benchmark_table(benchmarks: List[BenchmarkResult]):
           f"{'Return%':>9} {'MaxDD%':>8} {'WinR%':>8} {'Trades':>7}")
     print("  " + "-" * 70)
     for b in benchmarks:
-        marker = " ◄" if "QD" in b.name else ""
+        marker = " <--" if "QD" in b.name else ""
         print(
             f"  {b.name:<20} {b.sharpe:+8.3f} {b.calmar:+8.3f} "
             f"{b.total_return*100:+9.1f} {b.max_drawdown*100:+8.1f} "

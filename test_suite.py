@@ -1,5 +1,5 @@
 """
-test_suite.py — Master test runner
+test_suite.py -- Master test runner
 
 Runs the complete battery of tests on a saved archive.
 
@@ -54,7 +54,7 @@ from metrics.fitness import sharpe_ratio, max_drawdown
 
 
 def parse_args():
-    p = argparse.ArgumentParser(description="QD Trading — Test Suite")
+    p = argparse.ArgumentParser(description="QD Trading -- Test Suite")
     p.add_argument("--archive",     default=f"{cfg.OUTPUT_DIR}/{cfg.ARCHIVE_FILE}")
     p.add_argument("--ticker",      default=cfg.PRIMARY_TICKER)
     p.add_argument("--csv",         default=None,  help="Path to OHLCV CSV file")
@@ -97,7 +97,7 @@ def section(title: str):
 def run_tests(args):
     t0 = time.time()
 
-    # ── Load archive ──────────────────────────────────────────────────────────
+    # -- Load archive ----------------------------------------------------------
     section("LOADING ARCHIVE")
     if not Path(args.archive).exists():
         print(Fore.RED + f"  Archive not found: {args.archive}")
@@ -113,12 +113,12 @@ def run_tests(args):
   QD-Score     : {s['qd_score']}
   Improvements : {s['improvements']}""")
 
-    # ── Load data ─────────────────────────────────────────────────────────────
+    # -- Load data -------------------------------------------------------------
     section("LOADING DATA")
     df_full, source = load_data(args)
     print(Fore.GREEN +
           f"  {len(df_full)} days  "
-          f"({df_full.index[0].date()} → {df_full.index[-1].date()})  "
+          f"({df_full.index[0].date()} -> {df_full.index[-1].date()})  "
           f"source={source}")
 
     # Split train / test (same split used in evolution)
@@ -134,15 +134,15 @@ def run_tests(args):
 
     print(Fore.GREEN +
           f"  Train: {len(df_train)} days  "
-          f"({df_train.index[0].date()} → {df_train.index[-1].date()})")
+          f"({df_train.index[0].date()} -> {df_train.index[-1].date()})")
     print(Fore.GREEN +
           f"  Test:  {len(df_test)} days  "
-          f"({df_test.index[0].date()} → {df_test.index[-1].date()})")
+          f"({df_test.index[0].date()} -> {df_test.index[-1].date()})")
 
     all_results = {}
 
-    # ── TEST 1: Out-of-Sample ─────────────────────────────────────────────────
-    section("TEST 1 — Out-of-Sample Performance")
+    # -- TEST 1: Out-of-Sample -------------------------------------------------
+    section("TEST 1 -- Out-of-Sample Performance")
     print(Fore.WHITE + """
   This is the most important test.
   The archive was evolved on training data only.
@@ -154,8 +154,8 @@ def run_tests(args):
     oos_results = out_of_sample_test(archive, df_test, df_train, verbose=True)
     all_results["out_of_sample"] = oos_results
 
-    # ── TEST 2: Benchmark Comparison ──────────────────────────────────────────
-    section("TEST 2 — Benchmark Comparison")
+    # -- TEST 2: Benchmark Comparison ------------------------------------------
+    section("TEST 2 -- Benchmark Comparison")
     print(Fore.WHITE + """
   Compare against: Buy&Hold, MA crossover, RSI, Random signals.
   If QD can't beat a simple MA crossover, it has no value.
@@ -168,8 +168,8 @@ def run_tests(args):
         for b in benchmarks
     ]
 
-    # ── TEST 3: Monte Carlo Significance ──────────────────────────────────────
-    section("TEST 3 — Monte Carlo Significance")
+    # -- TEST 3: Monte Carlo Significance --------------------------------------
+    section("TEST 3 -- Monte Carlo Significance")
     print(Fore.WHITE + """
   Randomly shuffle the strategy's returns 1000 times.
   See if the real Sharpe is better than 95% of random shuffles.
@@ -202,8 +202,8 @@ def run_tests(args):
     n_sig = sum(1 for r in mc_results if r["significant"])
     print(Fore.GREEN + f"\n  {n_sig}/{len(mc_results)} strategies statistically significant")
 
-    # ── TEST 4: Walk-Forward Validation ───────────────────────────────────────
-    section("TEST 4 — Walk-Forward Validation")
+    # -- TEST 4: Walk-Forward Validation ---------------------------------------
+    section("TEST 4 -- Walk-Forward Validation")
     print(Fore.WHITE + """
   Repeatedly evolve on past, test on future (never seen data).
   This is the strictest test of out-of-sample generalization.
@@ -238,17 +238,17 @@ def run_tests(args):
         print(Fore.CYAN + f"\n  Walk-Forward Summary:")
         print(f"  Pass rate         : {wf_summary['pass_rate']} windows")
         print(f"  Mean test Sharpe  : {wf_summary['mean_test_sharpe']:+.3f} "
-              f"± {wf_summary['std_test_sharpe']:.3f}")
+              f"+/- {wf_summary['std_test_sharpe']:.3f}")
         print(f"  Mean test return  : {wf_summary['mean_test_return']:+.1f}%")
         print(f"  Mean degradation  : {wf_summary['mean_degradation']:+.3f}")
         verdict_c = Fore.GREEN if wf_summary["verdict"] == "ROBUST" else Fore.RED
         print(verdict_c + f"  Verdict           : {wf_summary['verdict']}")
 
-    # ── Final report plot ─────────────────────────────────────────────────────
+    # -- Final report plot -----------------------------------------------------
     section("GENERATING TEST REPORT PLOT")
     _plot_test_report(benchmarks, mc_results, wf_results, oos_results, df_test_ind, archive)
 
-    # ── Final verdict ──────────────────────────────────────────────────────────
+    # -- Final verdict ----------------------------------------------------------
     section("OVERALL VERDICT")
     _print_final_verdict(oos_results, wf_summary, mc_results, benchmarks)
 
@@ -265,24 +265,24 @@ def _print_final_verdict(oos, wf_summary, mc, benchmarks):
     # OOS pass?
     if oos.get("pct_positive", 0) >= 60:
         score += 1
-        notes.append(Fore.GREEN + f"  ✓ OOS: {oos['pct_positive']}% strategies positive on unseen data")
+        notes.append(Fore.GREEN + f"  [OK] OOS: {oos['pct_positive']}% strategies positive on unseen data")
     else:
-        notes.append(Fore.RED   + f"  ✗ OOS: only {oos.get('pct_positive',0)}% positive — possible overfit")
+        notes.append(Fore.RED   + f"  [X] OOS: only {oos.get('pct_positive',0)}% positive -- possible overfit")
 
     # Monte Carlo significant?
     n_sig = sum(1 for r in mc if r["significant"])
     if n_sig >= len(mc) // 2:
         score += 1
-        notes.append(Fore.GREEN + f"  ✓ MC: {n_sig}/{len(mc)} strategies statistically significant")
+        notes.append(Fore.GREEN + f"  [OK] MC: {n_sig}/{len(mc)} strategies statistically significant")
     else:
-        notes.append(Fore.RED   + f"  ✗ MC: only {n_sig}/{len(mc)} significant — results may be luck")
+        notes.append(Fore.RED   + f"  [X] MC: only {n_sig}/{len(mc)} significant -- results may be luck")
 
     # Walk-forward pass?
     if wf_summary and wf_summary.get("verdict") == "ROBUST":
         score += 1
-        notes.append(Fore.GREEN + f"  ✓ WF: {wf_summary['pass_rate']} walk-forward windows passed")
+        notes.append(Fore.GREEN + f"  [OK] WF: {wf_summary['pass_rate']} walk-forward windows passed")
     elif wf_summary:
-        notes.append(Fore.RED   + f"  ✗ WF: {wf_summary['pass_rate']} windows passed — not robust")
+        notes.append(Fore.RED   + f"  [X] WF: {wf_summary['pass_rate']} windows passed -- not robust")
 
     # Beats buy-and-hold?
     bh   = next((b for b in benchmarks if "Hold" in b.name), None)
@@ -290,10 +290,10 @@ def _print_final_verdict(oos, wf_summary, mc, benchmarks):
     if bh and qd and qd.sharpe > bh.sharpe:
         score += 1
         notes.append(Fore.GREEN +
-                     f"  ✓ Benchmark: QD Sharpe {qd.sharpe:+.3f} > B&H {bh.sharpe:+.3f}")
+                     f"  [OK] Benchmark: QD Sharpe {qd.sharpe:+.3f} > B&H {bh.sharpe:+.3f}")
     elif bh and qd:
         notes.append(Fore.RED   +
-                     f"  ✗ Benchmark: QD {qd.sharpe:+.3f} fails to beat B&H {bh.sharpe:+.3f}")
+                     f"  [X] Benchmark: QD {qd.sharpe:+.3f} fails to beat B&H {bh.sharpe:+.3f}")
 
     print()
     for note in notes:
@@ -302,11 +302,11 @@ def _print_final_verdict(oos, wf_summary, mc, benchmarks):
     print()
     total = 4
     if score == total:
-        print(Fore.GREEN + f"  OVERALL: {score}/{total} — STRONG evidence strategy is real")
+        print(Fore.GREEN + f"  OVERALL: {score}/{total} -- STRONG evidence strategy is real")
     elif score >= 2:
-        print(Fore.YELLOW + f"  OVERALL: {score}/{total} — MIXED evidence, needs more data")
+        print(Fore.YELLOW + f"  OVERALL: {score}/{total} -- MIXED evidence, needs more data")
     else:
-        print(Fore.RED + f"  OVERALL: {score}/{total} — WEAK evidence, likely overfit")
+        print(Fore.RED + f"  OVERALL: {score}/{total} -- WEAK evidence, likely overfit")
 
 
 def _plot_test_report(benchmarks, mc_results, wf_results, oos_results,
@@ -315,7 +315,7 @@ def _plot_test_report(benchmarks, mc_results, wf_results, oos_results,
     warnings.filterwarnings("ignore")
 
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
-    fig.suptitle("QD Trading System — Full Test Report", fontsize=13)
+    fig.suptitle("QD Trading System -- Full Test Report", fontsize=13)
 
     # 1. Equity curves
     ax = axes[0, 0]
@@ -328,7 +328,7 @@ def _plot_test_report(benchmarks, mc_results, wf_results, oos_results,
                     color=colors[idx], lw=lw, ls=ls, label=b.name, alpha=0.85)
         except Exception:
             pass
-    ax.set_title("Equity Curves — Test Period (unseen data)")
+    ax.set_title("Equity Curves -- Test Period (unseen data)")
     ax.set_ylabel("Equity"); ax.legend(fontsize=7); ax.grid(alpha=0.3)
     ax.axhline(1.0, color="gray", lw=0.5, ls=":")
 
@@ -399,7 +399,7 @@ def _plot_test_report(benchmarks, mc_results, wf_results, oos_results,
                  bar.get_y() + bar.get_height() / 2,
                  f"{val:+.3f}", va="center",
                  ha="left" if val >= 0 else "right", fontsize=8)
-    ax4.set_title("Strategy Comparison — Sharpe (test period)")
+    ax4.set_title("Strategy Comparison -- Sharpe (test period)")
     ax4.set_xlabel("Sharpe Ratio"); ax4.grid(alpha=0.3, axis="x")
 
     plt.tight_layout()

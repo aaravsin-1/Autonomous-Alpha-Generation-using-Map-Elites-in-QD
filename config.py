@@ -51,7 +51,7 @@ GENOME_BOUNDS = {
     "w_macd":          (0.0, 1.0),
     "w_bb":            (0.0, 1.0),
     # Risk management
-    "stop_loss":       (0.005, 0.08),
+    "stop_loss":       (0.015, 0.10),  # was (0.005, 0.08)
     "take_profit":     (0.01,  0.25),
     "position_size":   (0.2,   1.0),
     # Trend filter

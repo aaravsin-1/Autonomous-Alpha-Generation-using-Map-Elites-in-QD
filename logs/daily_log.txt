@@ -1,0 +1,470 @@
+
+============================================================
+  SESSION: 2026-04-15 11:14:58
+============================================================
+============================================================
+  QD TRADING SYSTEM — Morning Routine
+  Wednesday, April 15 2026  11:14
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.90)  Trend=STRONG TREND (0.74)
+    Routing : FALLBACK (regime cell too weak) → V5/T0
+    Strategy: Sharpe=1.341  WinRate=57.8%  Trades=443
+    Params  : EMA(5/120)  RSI(12)  Stop=0.5%  Take=21.9%
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 61% position size
+
+[STEP 5] Paper trading journal
+    Action recorded: ENTER LONG
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Running full test suite (this takes ~5 minutes)...
+    Test ran but could not parse OOS%. Check logs.
+
+[STEP 7] Evolution check
+    No evolution history yet. Evolution check will activate after first monthly test.
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=STRONG TREND
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 61% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:22:43
+============================================================
+============================================================
+  QD TRADING SYSTEM — Morning Routine
+  Wednesday, April 15 2026  11:22
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.90)  Trend=STRONG TREND (0.74)
+    Routing : FALLBACK (regime cell too weak) → V5/T0
+    Strategy: Sharpe=1.341  WinRate=57.8%  Trades=443
+    Params  : EMA(5/120)  RSI(12)  Stop=0.5%  Take=21.9%
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 61% position size
+    WARNING    : Stop=0.5% is tight for live trading.
+               : Paper trade only. For live, set stop_loss min to 0.015 in config.
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Running full test suite (this takes ~5 minutes)...
+    Test suite failed (exit 1). See: C:\a_Coding\father's asnf\logs\test_raw_2026-04-15.txt
+    Test ran but could not parse OOS%. Check logs.
+
+[STEP 7] Evolution check
+    No evolution history yet. Evolution check will activate after first monthly test.
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=STRONG TREND
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 61% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:29:38
+============================================================
+============================================================
+  QD TRADING SYSTEM -- Morning Routine
+  Wednesday, April 15 2026  11:29
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.90)  Trend=STRONG TREND (0.74)
+    Routing : FALLBACK (regime cell too weak) -> V5/T0
+    Strategy: Sharpe=1.341  WinRate=57.8%  Trades=443
+    Params  : EMA(5/120)  RSI(12)  Stop=0.5%  Take=21.9%
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 61% position size
+    WARNING    : Stop=0.5% is tight for live trading.
+               : Paper trade only. For live, set stop_loss min to 0.015 in config.
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Running full test suite (this takes ~5 minutes)...
+    OOS positive: 80.0%
+    System is healthy. Strategies generalising well.
+    Full test output saved: C:\a_Coding\father's asnf\logs\test_2026-04-15.txt
+
+[STEP 7] Evolution check
+    No re-evolution needed. Last OOS%: 80.0%
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=STRONG TREND
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 61% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:32:11
+============================================================
+============================================================
+  QD TRADING SYSTEM -- Morning Routine
+  Wednesday, April 15 2026  11:32
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.90)  Trend=STRONG TREND (0.74)
+    Routing : FALLBACK (regime cell too weak) -> V5/T0
+    Strategy: Sharpe=1.341  WinRate=57.8%  Trades=443
+    Params  : EMA(5/120)  RSI(12)  Stop=0.5%  Take=21.9%
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 61% position size
+    WARNING    : Stop=0.5% is tight for live trading.
+               : Paper trade only. For live, set stop_loss min to 0.015 in config.
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Last test was 0 days ago. Next test in 28 days.
+
+[STEP 7] Evolution check
+    No re-evolution needed. Last OOS%: 80.0%
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=STRONG TREND
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 61% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:34:02
+============================================================
+============================================================
+  QD TRADING SYSTEM -- Morning Routine
+  Wednesday, April 15 2026  11:34
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.88)  Trend=TRENDING (0.92)
+    Routing : REGIME-MAPPED -> V5/T2
+    Why     : high vol + trending -> prefers BD1=0.5-0.8  BD2=0.2-0.6
+    Strategy: Sharpe=0.447  WinRate=49.8%  Trades=259
+    Params  : EMA(9/75)  RSI(8)  Stop=2.3%  Take=24.0%
+    Weights : MA=0.28  RSI=0.26  MACD=0.25  BB=0.21
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 100% position size
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Last test was 0 days ago. Next test in 28 days.
+
+[STEP 7] Evolution check
+    No re-evolution needed. Last OOS%: 80.0%
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=TRENDING
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 100% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:34:20
+============================================================
+============================================================
+  QD TRADING SYSTEM -- Morning Routine
+  Wednesday, April 15 2026  11:34
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.88)  Trend=TRENDING (0.92)
+    Routing : REGIME-MAPPED -> V5/T2
+    Why     : high vol + trending -> prefers BD1=0.5-0.8  BD2=0.2-0.6
+    Strategy: Sharpe=0.447  WinRate=49.8%  Trades=259
+    Params  : EMA(9/75)  RSI(8)  Stop=2.3%  Take=24.0%
+    Weights : MA=0.28  RSI=0.26  MACD=0.25  BB=0.21
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 100% position size
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Last test was 0 days ago. Next test in 28 days.
+
+[STEP 7] Evolution check
+    No re-evolution needed. Last OOS%: 80.0%
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=TRENDING
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 100% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:36:42
+============================================================
+============================================================
+  QD TRADING SYSTEM -- Morning Routine
+  Wednesday, April 15 2026  11:36
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.88)  Trend=TRENDING (0.92)
+    Routing : EXPANDED SEARCH -> V5/T0
+    Why     : high vol + trending -> prefers BD1=0.5-0.8  BD2=0.2-0.6
+    Strategy: Sharpe=1.341  WinRate=57.8%  Trades=443
+    Params  : EMA(5/120)  RSI(12)  Stop=0.5%  Take=21.9%
+    Weights : MA=0.33  RSI=0.21  MACD=0.23  BB=0.23
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 61% position size
+    WARNING    : Stop=0.5% is tight for live trading.
+               : Paper trade only. Re-evolve with stop_loss min 0.015 in config.
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Last test was 0 days ago. Next test in 28 days.
+
+[STEP 7] Evolution check
+    No re-evolution needed. Last OOS%: 80.0%
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=TRENDING
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 61% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+
+
+============================================================
+  SESSION: 2026-04-15 11:38:58
+============================================================
+============================================================
+  QD TRADING SYSTEM -- Morning Routine
+  Wednesday, April 15 2026  11:38
+============================================================
+
+[STEP 1] Market calendar check
+    Today is a trading day.
+
+[STEP 2] Market data
+  Downloading latest SPY data from Yahoo Finance...
+  Downloaded 4094 rows  (2010-01-04 to 2026-04-14)
+
+[STEP 3] Loading archive
+    Archive: 60/100 niches  Best Sharpe=1.341  Mean=0.208
+
+[STEP 4] Computing today's signal
+    Regime  : Vol=HIGH (0.88)  Trend=TRENDING (0.92)
+    Routing : EXPANDED SEARCH -> V5/T0
+    Why     : high vol + trending -> prefers BD1=0.5-0.8  BD2=0.2-0.6
+    Strategy: Sharpe=1.341  WinRate=57.8%  Trades=443
+    Params  : EMA(5/120)  RSI(12)  Stop=1.5%  Take=21.9%
+    Weights : MA=0.33  RSI=0.21  MACD=0.23  BB=0.23
+
+    SPY CLOSE  : $694.46
+    SIGNAL     : LONG
+    ACTION     : Buy/Hold SPY at 61% position size
+
+[STEP 5] Paper trading journal
+    Action recorded: HOLD (already long)
+    Open position : Entered $694.46 on 2026-04-15 (0 days)
+    Unrealised P&L: +0.00%
+
+[STEP 6] Monthly health check
+    Last test was 0 days ago. Next test in 28 days.
+
+[STEP 7] Evolution check
+    No re-evolution needed. Last OOS%: 80.0%
+
+============================================================
+  MORNING ROUTINE COMPLETE
+============================================================
+
+  Date      : 2026-04-15
+  SPY Close : $694.46
+  Regime    : Vol=HIGH  Trend=TRENDING
+  SIGNAL    : LONG
+  ACTION    : Buy/Hold SPY at 61% position size
+
+  Journal   : C:\a_Coding\father's asnf\journal\paper_trades.csv
+  Full log  : C:\a_Coding\father's asnf\logs\daily_log.txt
+
+  Summary saved: C:\a_Coding\father's asnf\logs\latest_summary.txt
+
+

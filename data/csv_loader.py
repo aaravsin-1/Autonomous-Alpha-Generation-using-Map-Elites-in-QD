@@ -33,7 +33,7 @@ def load_csv(path: str) -> pd.DataFrame:
 
     first_cell = first_lines[0].split(",")[0].strip().lower()
 
-    # ── New Yahoo Finance format (starts with "Price" or "Ticker") ────────────
+    # -- New Yahoo Finance format (starts with "Price" or "Ticker") ------------
     if first_cell in ("price", "ticker"):
         # Row 0: Price, Close, High, Low, Open, Volume
         # Row 1: Ticker, SPY, SPY, ...
@@ -43,7 +43,7 @@ def load_csv(path: str) -> pd.DataFrame:
 
         # Assign column names from row 0
         header_row = first_lines[0].split(",")
-        # first element is "Price" → becomes "Date"
+        # first element is "Price" -> becomes "Date"
         header_row[0] = "Date"
         cols = [c.strip().title() for c in header_row]
 
@@ -55,12 +55,12 @@ def load_csv(path: str) -> pd.DataFrame:
 
         df.columns = cols
 
-    # ── Old Yahoo Finance format (starts with "Date") ─────────────────────────
+    # -- Old Yahoo Finance format (starts with "Date") -------------------------
     else:
         df = pd.read_csv(path)
         df.columns = [c.strip().title() for c in df.columns]
 
-    # ── Parse date ────────────────────────────────────────────────────────────
+    # -- Parse date ------------------------------------------------------------
     date_col = next((c for c in df.columns if "date" in c.lower()), None)
     if date_col is None:
         raise ValueError(
@@ -73,7 +73,7 @@ def load_csv(path: str) -> pd.DataFrame:
     df = df.dropna(subset=[date_col])
     df = df.set_index(date_col).sort_index()
 
-    # ── Normalise column names ────────────────────────────────────────────────
+    # -- Normalise column names ------------------------------------------------
     rename = {}
     for col in df.columns:
         cl = col.lower().replace(" ", "")
@@ -92,7 +92,7 @@ def load_csv(path: str) -> pd.DataFrame:
 
     df = df.rename(columns=rename)
 
-    # ── Keep only OHLCV ───────────────────────────────────────────────────────
+    # -- Keep only OHLCV -------------------------------------------------------
     needed = ["Open", "High", "Low", "Close", "Volume"]
     missing = [c for c in needed if c not in df.columns]
     if missing:
@@ -104,11 +104,11 @@ def load_csv(path: str) -> pd.DataFrame:
 
     df = df[needed].copy()
 
-    # ── Clean ─────────────────────────────────────────────────────────────────
+    # -- Clean -----------------------------------------------------------------
     df = df.apply(pd.to_numeric, errors="coerce")
     df = df.dropna()
     df = df[df["Close"] > 0]
 
     print(f"  [data] Loaded {len(df)} rows from {path.name}  "
-          f"({df.index[0].date()} → {df.index[-1].date()})")
+          f"({df.index[0].date()} -> {df.index[-1].date()})")
     return df

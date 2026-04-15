@@ -13,7 +13,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 
-# ── Files that need to move into subdirectories ───────────────────────────────
+# -- Files that need to move into subdirectories -------------------------------
 MOVES = {
     # evolution/
     "evaluator.py":      "evolution/evaluator.py",
@@ -47,12 +47,12 @@ MOVES = {
     "dashboard.py": "visualization/dashboard.py",
 }
 
-# ── CSV data file ─────────────────────────────────────────────────────────────
+# -- CSV data file -------------------------------------------------------------
 DATA_MOVES = {
     "SPY.csv": "data/SPY.csv",
 }
 
-# ── Directories to create ─────────────────────────────────────────────────────
+# -- Directories to create -----------------------------------------------------
 DIRS = [
     "data", "evolution", "strategies", "metrics",
     "router", "testing", "visualization", "output/plots",
@@ -61,7 +61,7 @@ DIRS = [
 
 def run():
     print("=" * 55)
-    print("  QD Trading — Project Setup")
+    print("  QD Trading -- Project Setup")
     print("=" * 55)
 
     # 1. Create directories
@@ -71,7 +71,7 @@ def run():
         init = HERE / d / "__init__.py"
         if not init.exists():
             init.touch()
-        print(f"    ✓ {d}/")
+        print(f"    [OK] {d}/")
 
     # 2. Move Python files
     print("\n  Moving files to correct locations...")
@@ -82,7 +82,7 @@ def run():
         dst = HERE / dst_rel
         if src.exists():
             shutil.move(str(src), str(dst))
-            moved.append(f"  {src_name} → {dst_rel}")
+            moved.append(f"  {src_name} -> {dst_rel}")
         else:
             # Already in place, or genuinely missing
             if dst.exists():
@@ -91,21 +91,21 @@ def run():
                 missing.append(src_name)
 
     for m in moved:
-        print(f"    ✓ {m}")
+        print(f"    [OK] {m}")
 
     # 3. Report missing files
     if missing:
-        print(f"\n  ⚠  These files were not found (may already be in place):")
+        print(f"\n  (!)  These files were not found (may already be in place):")
         for f in missing:
             print(f"     - {f}")
 
     # 4. Check config.py
     config_path = HERE / "config.py"
     if not config_path.exists():
-        print("\n  ✗  config.py is MISSING. Download it from the link below")
+        print("\n  [X]  config.py is MISSING. Download it from the link below")
         print("     or the next step will fail.")
     else:
-        print(f"\n    ✓ config.py found")
+        print(f"\n    [OK] config.py found")
 
     # 5. Quick import test
     print("\n  Testing imports...")
@@ -125,10 +125,10 @@ def run():
     for module, label in tests:
         try:
             __import__(module)
-            print(f"    ✓ {module}")
+            print(f"    [OK] {module}")
         except Exception as e:
             errors.append((module, str(e)))
-            print(f"    ✗ {module}  ← {e}")
+            print(f"    [X] {module}  <- {e}")
 
     print()
     if errors:

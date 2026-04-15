@@ -28,7 +28,7 @@ def plot_archive_heatmap(archive, generation: int = 0, save: bool = True):
     grid = archive.fitness_grid()
 
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-    fig.suptitle(f"MAP-Elites Archive — Generation {generation}", fontsize=13)
+    fig.suptitle(f"MAP-Elites Archive -- Generation {generation}", fontsize=13)
 
     # Fitness heatmap
     ax = axes[0]
@@ -38,8 +38,8 @@ def plot_archive_heatmap(archive, generation: int = 0, save: bool = True):
     im = ax.imshow(masked, cmap=cmap, vmin=-1, vmax=2,
                    origin="lower", aspect="auto")
     plt.colorbar(im, ax=ax, label="Fitness (Sharpe)")
-    ax.set_xlabel("BD2: Trend strength →")
-    ax.set_ylabel("BD1: Volatility →")
+    ax.set_xlabel("BD2: Trend strength ->")
+    ax.set_ylabel("BD1: Volatility ->")
     ax.set_title(f"Fitness per niche  "
                  f"({archive.n_filled}/{GRID_SIZE**2} filled, "
                  f"{archive.coverage*100:.0f}%)")
@@ -60,8 +60,8 @@ def plot_archive_heatmap(archive, generation: int = 0, save: bool = True):
     im2 = ax2.imshow(masked2, cmap=plt.cm.Blues, vmin=0, vmax=1,
                      origin="lower", aspect="auto")
     plt.colorbar(im2, ax=ax2, label="Win Rate")
-    ax2.set_xlabel("BD2: Trend strength →")
-    ax2.set_ylabel("BD1: Volatility →")
+    ax2.set_xlabel("BD2: Trend strength ->")
+    ax2.set_ylabel("BD1: Volatility ->")
     ax2.set_title("Win Rate per niche")
     ax2.set_xticks(range(GRID_SIZE))
     ax2.set_yticks(range(GRID_SIZE))

@@ -1,0 +1,124 @@
+
+================================================================
+  LOADING ARCHIVE
+================================================================
+
+  Archive: 60/100 niches (60.0% coverage)
+  Best Sharpe  : 1.341
+  Mean Sharpe  : 0.208
+  QD-Score     : 12.496
+  Improvements : 546
+
+================================================================
+  LOADING DATA
+================================================================
+  [data] Loaded 4094 rows from SPY.csv  (2010-01-04 -> 2026-04-14)
+  4094 days  (2010-01-04 -> 2026-04-14)  source=csv
+  Train: 3272 days  (2010-01-04 -> 2022-12-30)
+  Test:  822 days  (2023-01-03 -> 2026-04-14)
+
+================================================================
+  TEST 1 -- Out-of-Sample Performance
+================================================================
+
+  This is the most important test.
+  The archive was evolved on training data only.
+  We now run it on data it has NEVER seen.
+  Good result = strategies have real predictive power.
+  Bad result  = strategies are overfit to training data.
+
+
+  Out-of-Sample Results (822 days)
+  -------------------------------------------------------
+  Strategies tested      : 60
+  Positive OOS Sharpe    : 48 (80.0%)
+  Mean train Sharpe      : +0.208
+  Mean test  Sharpe      : +0.266
+  Mean degradation       : -0.057
+  -------------------------------------------------------
+  Best single strategy   : Sharpe +0.568  Return +23.6%  MaxDD -9.7%
+  Routing strategy       : Sharpe -1.463  Return -30.3%  MaxDD -33.0%
+
+  VERDICT: PASSES out-of-sample test  [OK]
+  80.0% of strategies remain profitable on unseen data.
+
+================================================================
+  TEST 2 -- Benchmark Comparison
+================================================================
+
+  Compare against: Buy&Hold, MA crossover, RSI, Random signals.
+  If QD can't beat a simple MA crossover, it has no value.
+
+
+  Strategy               Sharpe   Calmar   Return%   MaxDD%    WinR%  Trades
+  ----------------------------------------------------------------------
+  Buy & Hold             +0.895   +1.089     +45.9    -18.8   +100.0       1
+  MA 50/200              +0.198   +0.309     +13.8    -24.3   +100.0       1
+  QD Best                +0.102   +0.514      +4.8    -11.6     +5.0      20 <--
+  MA 20/50               +0.023   +0.244      +6.8    -18.3   +100.0       1
+  RSI 30/70              -0.136   +0.408      +5.7     -7.1    +47.6      21
+  Random                 -2.937   -0.505     -49.7    -52.4    +32.2     118
+
+================================================================
+  TEST 3 -- Monte Carlo Significance
+================================================================
+
+  Randomly shuffle the strategy's returns 1000 times.
+  See if the real Sharpe is better than 95% of random shuffles.
+  p-value < 0.05 = result is statistically significant.
+  p-value > 0.05 = result could be luck.
+
+
+  Cell       TrainF    TestF    p-val   pctile               CI        Verdict
+  ------------------------------------------------------------------------
+  V3/T0      +1.202   +0.355   0.7260    27.4% [-0.99, +1.64]  NOT SIGNIFICANT
+  V4/T0      +1.253   +0.281   0.7460    25.4% [-1.01, +1.61]  NOT SIGNIFICANT
+  V5/T1      +0.866   +0.429   0.8740    12.6% [-0.87, +1.71]  NOT SIGNIFICANT
+  V5/T0      +1.341   +0.568   0.9120     8.8% [-0.78, +2.01]  NOT SIGNIFICANT
+  V6/T0      +1.312   +0.331   0.9500     5.0% [-1.17, +1.72]  NOT SIGNIFICANT
+
+  0/5 strategies statistically significant
+
+================================================================
+  TEST 4 -- Walk-Forward Validation
+================================================================
+
+  Repeatedly evolve on past, test on future (never seen data).
+  This is the strictest test of out-of-sample generalization.
+  Each test window is completely unseen during that window's training.
+
+
+  Window 1/3: train 2010-2013  test 2014-2014 (1006d / 252d)
+    Train Sharpe: +1.872  Test Sharpe: -0.172  Return: +3.1%  MaxDD: -5.7%  Niches: 41  [X] FAIL
+
+  Window 2/3: train 2010-2014  test 2015-2015 (1258d / 252d)
+    Train Sharpe: +1.253  Test Sharpe: -2.517  Return: -7.6%  MaxDD: -7.7%  Niches: 40  [X] FAIL
+
+  Window 3/3: train 2010-2015  test 2016-2016 (1510d / 252d)
+    Train Sharpe: +0.362  Test Sharpe: -0.435  Return: +1.4%  MaxDD: -5.0%  Niches: 37  [X] FAIL
+
+  Walk-Forward Summary:
+  Pass rate         : 0/3 windows
+  Mean test Sharpe  : -1.041 +/- 1.049
+  Mean test return  : -1.0%
+  Mean degradation  : +2.204
+  Verdict           : WEAK
+
+================================================================
+  GENERATING TEST REPORT PLOT
+================================================================
+  Report plot saved: output/plots/test_report.png
+
+================================================================
+  OVERALL VERDICT
+================================================================
+
+  [OK] OOS: 80.0% strategies positive on unseen data
+  [X] MC: only 0/5 significant -- results may be luck
+  [X] WF: 0/3 windows passed -- not robust
+  [X] Benchmark: QD +0.102 fails to beat B&H +0.895
+
+  OVERALL: 1/4 -- WEAK evidence, likely overfit
+
+  Test suite completed in 15s
+

@@ -1,0 +1,9 @@
+date,signal,spy_price,action,position_open,entry_price,entry_date,strategy_cell,strategy_sharpe,strategy_winrate,vol_regime,trend_regime,exit_price,exit_date,pnl_pct,pnl_status,notes
+2026-04-15,LONG,694.46,ENTER LONG,YES,694.46,2026-04-15,V5/T0,1.341,57.8%,HIGH,STRONG TREND,,,,OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T0,1.341,57.8%,HIGH,STRONG TREND,,,+0.000% (unrealised),OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T0,1.341,57.8%,HIGH,STRONG TREND,,,+0.000% (unrealised),OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T0,1.341,57.8%,HIGH,STRONG TREND,,,+0.000% (unrealised),OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T2,0.447,49.8%,HIGH,TRENDING,,,+0.000% (unrealised),OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T2,0.447,49.8%,HIGH,TRENDING,,,+0.000% (unrealised),OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T0,1.341,57.8%,HIGH,TRENDING,,,+0.000% (unrealised),OPEN,
+2026-04-15,LONG,694.46,HOLD (already long),YES,694.46,2026-04-15,V5/T0,1.341,57.8%,HIGH,TRENDING,,,+0.000% (unrealised),OPEN,

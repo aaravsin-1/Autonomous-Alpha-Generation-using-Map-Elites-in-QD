@@ -11,8 +11,8 @@ It has NEVER seen data from 2023 onwards.
 We now run the EXACT archive produced by evolution
 on the unseen 2023+ data without touching it.
 
-If it works → the strategies have real predictive power.
-If it fails → the strategies overfit to training data.
+If it works -> the strategies have real predictive power.
+If it fails -> the strategies overfit to training data.
 
 We also test the ROUTING mechanism specifically:
 does routing to the right regime actually help?
@@ -122,14 +122,14 @@ def out_of_sample_test(
 
     if verbose:
         print(f"\n  Out-of-Sample Results ({len(df_test)} days)")
-        print(f"  {'─'*55}")
+        print(f"  {'-'*55}")
         print(f"  Strategies tested      : {results['n_strategies_tested']}")
         print(f"  Positive OOS Sharpe    : {results['n_positive_oos']} "
               f"({results['pct_positive']}%)")
         print(f"  Mean train Sharpe      : {results['mean_train_sharpe']:+.3f}")
         print(f"  Mean test  Sharpe      : {results['mean_test_sharpe']:+.3f}")
         print(f"  Mean degradation       : {results['mean_degradation']:+.3f}")
-        print(f"  {'─'*55}")
+        print(f"  {'-'*55}")
         print(f"  Best single strategy   : Sharpe {results['best_single_sharpe']:+.3f}  "
               f"Return {results['best_single_return']*100:+.1f}%  "
               f"MaxDD {results['best_single_max_dd']*100:.1f}%")
@@ -140,12 +140,12 @@ def out_of_sample_test(
 
         # Verdict
         if results["pct_positive"] >= 60 and results["mean_test_sharpe"] > 0:
-            print(f"  VERDICT: PASSES out-of-sample test  ✓")
+            print(f"  VERDICT: PASSES out-of-sample test  [OK]")
             print(f"  {results['pct_positive']}% of strategies remain profitable on unseen data.")
         elif results["pct_positive"] >= 40:
-            print(f"  VERDICT: MIXED — some strategies survive, some don't")
+            print(f"  VERDICT: MIXED -- some strategies survive, some don't")
         else:
-            print(f"  VERDICT: FAILS out-of-sample test  ✗")
+            print(f"  VERDICT: FAILS out-of-sample test  [X]")
             print(f"  Strategies overfit to training data.")
 
     return results
