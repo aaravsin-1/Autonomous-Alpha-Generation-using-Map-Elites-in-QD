@@ -1,0 +1,53 @@
+
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Virtual environments
+# =========================
+venv/
+.env/
+.venv/
+env/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Data files (optional — choose carefully)
+# =========================
+# If your CSVs are generated (like SPY data), ignore them:
+data/*.csv
+
+# BUT if you want to keep them versioned, comment this out
+
+# =========================
+# Jupyter / temp
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE stuff
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Python build artifacts
+# =========================
+build/
+dist/
+*.egg-info/

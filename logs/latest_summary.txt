@@ -1,19 +1,23 @@
 QD TRADING SYSTEM - Daily Summary
-Date: 2026-04-15  Time: 11:38
+Date: 2026-04-20  Time: 19:01
 
-SPY Close   : $694.46
-Regime      : Vol=HIGH (0.88)  Trend=TRENDING (0.92)
+SPY Close   : $708.53
+Regime      : Vol=HIGH (0.89)  Trend=TRENDING (0.80)
 Strategy    : V5/T0  Sharpe=1.341
 
 SIGNAL      : LONG
 ACTION      : Buy/Hold SPY at 61% position size
 
 Paper Trading Stats:
-  No closed trades yet.
+  Closed trades : 3
+  Win rate      : 100.0% (3W/0L)
+  Avg win       : +2.26%
+  Avg loss      : +0.00%
+  Total equity  : +6.93%
 
 Open Position:
   Entry  : $694.46 on 2026-04-15
-  Current: $694.46  (+0.00% unrealised)
+  Current: $708.53  (+2.03% unrealised)
 
 Files:
   Journal : C:\a_Coding\father's asnf\journal\paper_trades.csv
